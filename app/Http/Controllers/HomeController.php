@@ -8,22 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
-    public function index(){
 
-        if(Auth::id()){
+    public function admin(){
 
-            $usertype = Auth::user()->usertype;
-
-            if($usertype == 'user'){
-
-                return view('dashboard');
-
-            }elseif($usertype == 'admin'){
-
-                return "THis is AdminPanel";
-            }else{
-                return redirect()->back();
-            }
-        }
+        return view('admin.index');
     }
+
+    
 }
