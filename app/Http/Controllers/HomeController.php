@@ -14,5 +14,11 @@ class HomeController extends Controller
         return view('admin.index');
     }
 
+    public function logout(){
+
+        Auth::logout();
+        return to_route('login');
+    }
+
     
 }

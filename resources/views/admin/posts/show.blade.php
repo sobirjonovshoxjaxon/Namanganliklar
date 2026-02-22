@@ -1,9 +1,8 @@
 @extends('admin.includes.general')
 @section('content')
 
-  <h1>Welcome to AdminPanel</h1>
 
-@endsection 
+    <h1>Posts Show Page</h1>
 
 
-        
+@endsection

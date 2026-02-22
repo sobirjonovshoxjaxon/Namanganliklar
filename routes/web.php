@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,10 @@ Route::get('/contact',[PageController::class, 'contact'])->name('contact.page');
 
 //HomeController 
 Route::get('/admin/panel',[HomeController::class, 'admin'])->name('admin.dashboard');
+Route::get('/logout',[HomeController::class, 'logout'])->name('logout.page');
+
+//PostController 
+Route::resource('/posts', PostController::class);
 
 
 
