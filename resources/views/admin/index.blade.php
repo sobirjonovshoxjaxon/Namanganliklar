@@ -1,9 +1,13 @@
 @extends('admin.requires.general')
 @section('content')
 
-  <h1>Welcome to AdminPanel</h1>
-
-@endsection 
+  <h1>Welcome Dear Admin!</h1>
 
 
+@endsection
+        
+        
+          
+          
+          
         

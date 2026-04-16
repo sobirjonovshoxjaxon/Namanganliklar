@@ -19,45 +19,44 @@
                           <th colspan="3">Action</th>
                         </tr>
 
-                    
-                        <tr>
-                          <td>1</td>
-                          <td>Irwansyah Saputra</td>
-                          <td>Image part</td>
-                          <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, repellat!
-                          <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad dolorum qui similique perspiciatis facere facilis deleniti natus! Ea iure debitis fugiat hic numquam quo eum?</td>
-                          </td>
-                          <td>
-                            <a href="" class="btn btn-primary">Show</a>
-                          </td>
-                          <td>
-                            <a href="" class="btn btn-warning">Edit</a>
-                          </td>
-                          <td>
-                            <a href="" class="btn btn-danger">Delete</a>
-                          </td>
-                        </tr>
+                        
+                        @foreach ($posts as $post)
+                          
+                        
+                          <tr>
+                            <td>{{ $post->id }}</td>
+                            <td>{{ Str::limit($post->title,20) }}</td>
+                            <td>
+                              <img width="100px" src="{{ asset('storage/'.$post->image)}}" alt="">
+                            </td>
+                            <td>{{ Str::limit($post->short_content,20) }}</td>
+                            <td>{{ Str::limit($post->content,50) }}</td>
+                            </td>
+                            <td>
+                              <a href="{{ route('posts.show',$post->id)}}" class="btn btn-primary">Show</a>
+                            </td>
+                            <td>
+                              <a href="{{ route('posts.edit',$post->id)}}" class="btn btn-warning">Edit</a>
+                            </td>
+                            <td>
+                              <form action="{{ route('posts.destroy',$post->id)}}" method="POST" onsubmit="return confirm('Are you sure to delete this post')">
+                                @csrf 
+                                @method('DELETE')
+
+                                  <input type="submit" class="btn btn-danger" value="Delete">
+                              </form>
+                            </td>
+                          </tr>
+
+                        @endforeach
 
                       </table>
                     </div>
                   </div>
+
+
                   <div class="card-footer text-right">
-                    <nav class="d-inline-block">
-                      <ul class="pagination mb-0">
-                        <li class="page-item disabled">
-                          <a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
-                        </li>
-                        <li class="page-item active"><a class="page-link" href="#">1 <span
-                              class="sr-only">(current)</span></a></li>
-                        <li class="page-item">
-                          <a class="page-link" href="#">2</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                          <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-                        </li>
-                      </ul>
-                    </nav>
+                    {{ $posts->links('vendor.pagination.bootstrap-5') }}
                   </div>
                 </div>
             </div>

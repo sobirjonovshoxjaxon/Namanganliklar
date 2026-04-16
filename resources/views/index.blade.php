@@ -41,9 +41,9 @@
 
 
 
-    {{-- Category Posts --}}
+    {{-- Latest Posts --}}
         @include('requires/latestPosts')
-    {{-- Category End Posts --}}
+    {{-- Latest End Posts --}}
 
 
     <div class="apps-block container basic-flex">

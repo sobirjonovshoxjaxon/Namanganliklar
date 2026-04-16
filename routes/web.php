@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 //PageController 
 Route::get('/',[PageController::class, 'index'])->name('index.page');
 Route::get('/post/{slug}',[PageController::class, 'post'])->name('post.page');
-Route::get('/postdetail/{slug}',[PageController::class, 'postDetail'])->name('postdetail.page');
+Route::get('/postdetail/{post}',[PageController::class, 'postDetail'])->name('postdetail.page');
 Route::get('/contact',[PageController::class, 'contact'])->name('contact.page');
 
 

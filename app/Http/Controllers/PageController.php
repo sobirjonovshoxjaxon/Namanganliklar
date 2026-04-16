@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class PageController extends Controller
 {
     public function index(){
-        return view('index');
+
+        $posts = Post::latest()->limit(15)->get();
+        return view('index',compact('posts'));
     }
 
     public function contact(){
@@ -18,7 +21,8 @@ class PageController extends Controller
         return view('posts');
     }
 
-    public function postDetail(){
-        return view('postdetail');
+    public function postDetail(Post $post){
+
+        return view('postdetail',compact('post'));
     }
 }
