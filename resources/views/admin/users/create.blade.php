@@ -1,0 +1,63 @@
+@extends('admin.requires.general')
+@section('content')
+
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="card">  
+                  <div class="card-header">
+                    <h4>User Create Form</h4>
+                    <a href="{{ route('users.index')}}" class="btn btn-dark">Back</a>
+                  </div>
+                  <div class="card-body">
+
+
+                   <form action="{{ route('users.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf 
+
+
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input name="name" type="text" class="form-control" value="{{ old('name')}}">
+                            @error('name')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label>Image</label>
+                            <input name="image" type="file" class="form-control" value="{{ old('image') }}">
+                            @error('image')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input name="email" type="email" class="form-control" value="{{ old('email') }}">
+                            @error('email')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input name="password" type="password" class="form-control" value="{{ old('password') }}">
+                            @error('password')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    
+                    
+                     
+                        <button type="submit" class="btn btn-success">Create</button>
+                        <button type="reset" class="btn btn-warning">Reset</button>
+                   </form>
+                   
+                    
+                   
+                </div>
+               
+                
+            </div>
+
+
+@endsection

@@ -1,9 +1,13 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TagController;
+use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 //PageController 
@@ -17,10 +21,18 @@ Route::get('/contact',[PageController::class, 'contact'])->name('contact.page');
 Route::get('/admin/panel',[HomeController::class, 'admin'])->name('admin.dashboard');
 Route::get('/logout',[HomeController::class, 'logout'])->name('logout.page');
 
+
 //PostController 
 Route::resource('/posts', PostController::class);
 
+//UserController 
+Route::resource('/users', UserController::class);
 
+//CategoryController 
+Route::resource('/categories',CategoryController::class);
+
+//TagController 
+Route::resource('/tags',TagController::class);
 
 //Dashboard Breeze 
 Route::get('/dashboard', function () {

@@ -19,7 +19,12 @@ class UserSeeder extends Seeder
             'name' => 'Shoxjaxon',
             'email' => 'shoxjaxonsobirjonov77@gmail.com',
             'password' => Hash::make('87654321'),
+            'image' => 'avatar.jpg',
             'usertype'=> 'admin',
         ]);
+
+
+        User::factory()->count(10)->make();
     }
+
 }

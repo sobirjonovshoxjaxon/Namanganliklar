@@ -71,8 +71,21 @@
               <a href="index.html" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
             </li>
             <li class="dropdown">
+              <a href="{{ route('users.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Users</span></a>
+            </li>
+            <li class="dropdown">
+              <a href="{{ route('categories.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Categories</span></a>
+            </li>
+
+            <li class="dropdown">
               <a href="{{ route('posts.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Posts</span></a>
             </li>
+
+            <li class="dropdown">
+              <a href="{{ route('tags.index')}}" class="nav-link"><i data-feather="monitor"></i><span>Tags</span></a>
+            </li>
+
+
           </ul>
         </aside>
       </div>
