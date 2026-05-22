@@ -37,6 +37,35 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
+
+
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select name="category_id">
+
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->category }}</option>
+                                @endforeach
+                              
+                            </select>
+                            @error('category')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label>Tag</label>
+                            <select name="tags[]" multiple>
+                                
+                                @foreach ($tags as $tag)
+                                    <option value="{{ $tag->id }}">{{ $tag->tag }}</option>
+                                @endforeach
+                              
+                            </select>
+                            @error('category')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
                     
                     
                         <div class="form-group">

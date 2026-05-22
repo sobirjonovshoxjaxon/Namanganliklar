@@ -15,6 +15,8 @@ class Post extends Model
         'image',
         'short_content',
         'content',
+        'user_id',
+        'category_id',
     ];
 
     // Modal Relationships
@@ -25,4 +27,9 @@ class Post extends Model
     public function comments(){
         return $this->hasMany(Comment::class);
     }
+
+    public function tags(){
+        return $this->belongsToMany(Tag::class);
+    }
+
 }
